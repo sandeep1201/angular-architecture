@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { VillainsComponent } from './villains/villains.component';
+import { VillainsComponent } from "./villains/villains.component";
+import { VillainDetailContainerComponent } from "./villain-detail-container/villain-detail-container.component";
 
 const routes: Routes = [
   // TODO: Step 3
@@ -9,13 +10,15 @@ const routes: Routes = [
   // Remove the pathMatch : full
   // Add the children array to go to VillainDetailContainerComponent
   // when the route path is details/:id
-  { path: '', pathMatch: 'full', component: VillainsComponent }
 
   // TODO: Step 3 - Solution
-  // {
-  //   path: '', component: VillainsComponent,
-  //   children: [{ path: 'details/:id', component: VillainDetailContainerComponent }]
-  // }
+  {
+    path: "",
+    component: VillainsComponent,
+    children: [
+      { path: "details/:id", component: VillainDetailContainerComponent }
+    ]
+  }
 ];
 
 @NgModule({
